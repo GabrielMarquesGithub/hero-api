@@ -1,0 +1,42 @@
+:root {
+  --white: #fff;
+  --black: #000;
+  --grey: #a8a8b3;
+  --dark: #161515;
+  --red: #cc0000;
+  --blue: #2e86c1;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  @media (max-width: 1080px) {
+    font-size: 93.75%;
+  }
+  @media (max-width: 720px) {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  color: var(--white);
+  background: var(--dark);
+  -webkit-font-smoothing: antialiased;
+}
+body,
+input,
+textarea,
+select,
+button {
+  font: 500 1rem "Roboto", sans-serif;
+}
+button {
+  cursor: pointer;
+}
+a {
+  //o inherit faz com que ele assuma as cores do elemento pai
+  color: inherit;
+  text-decoration: none;
+}

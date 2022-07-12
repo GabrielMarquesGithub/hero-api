@@ -1,0 +1,60 @@
+.HomeContainer {
+  .SearchContainer {
+    background: url("../../assets/img/home.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    margin: 0 auto;
+    height: 100vh;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+
+    border-bottom: 2px solid var(--red);
+    .Presentation {
+      text-align: center;
+      span {
+        position: relative;
+        top: 0;
+        opacity: 0;
+
+        font-size: 2.5rem;
+        text-shadow: 2px 2px var(--red);
+
+        animation: letterAnimation 1s forwards;
+        &:nth-child(2) {
+          color: var(--blue);
+          animation-delay: 0.4s;
+        }
+        &:nth-child(4) {
+          animation-delay: 0.8s;
+        }
+        &:nth-child(5) {
+          animation-delay: 1.2s;
+        }
+      }
+    }
+    .SearchBoxContainer {
+      opacity: 0;
+      position: relative;
+      animation: letterAnimation 1s forwards 1.5s;
+    }
+  }
+}
+@keyframes letterAnimation {
+  0% {
+    top: -10rem;
+    opacity: 0;
+  }
+  50% {
+    top: 2rem;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}

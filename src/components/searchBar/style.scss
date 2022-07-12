@@ -1,0 +1,42 @@
+.SearchBoxContainer {
+  width: 100%;
+  max-width: 500px;
+
+  display: flex;
+  align-items: center;
+
+  clip-path: polygon(5% 0%, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);
+  overflow: hidden;
+
+  box-shadow: 2px 2px 10px var(--black);
+  input {
+    font-size: 1.3rem;
+
+    padding: 0 1.5rem;
+
+    width: 75%;
+    border: none;
+
+    height: 4rem;
+
+    transition: box-shadow 0.2s;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    font-size: 1.5rem;
+
+    border: none;
+    background-color: var(--red);
+    color: var(--white);
+
+    height: 4rem;
+    width: 25%;
+
+    &:hover {
+      filter: saturate(1.2);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.HeroesContainer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+
+  padding-bottom: 4rem;
+  button {
+    width: 15rem;
+    height: 3rem;
+
+    clip-path: polygon(5% 0%, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);
+    border: none;
+
+    background-color: var(--red);
+    color: var(--white);
+
+    transition: filter 0.2s;
+    &:hover {
+      filter: saturate(1.2);
+    }
+  }
+}
