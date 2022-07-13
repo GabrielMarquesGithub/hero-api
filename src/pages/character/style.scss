@@ -1,25 +1,96 @@
-.CardLinksContainer {
-  display: flex;
-  flex-direction: column;
+.CharacterContainer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/img/home.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 
-  position: absolute;
+  width: 100vw;
+  height: 100vh;
 
-  background: var(--dark);
-  padding: 1rem;
+  .CharacterInternalContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 
-  right: 0.5rem;
-  bottom: 3rem;
+    margin: 0 auto;
+    max-width: 1080px;
+    height: 100vh;
+    .comicsContainer {
+      position: relative;
+      padding: 2rem;
 
-  clip-path: polygon(10% 0%, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-  a {
-    cursor: pointer;
-    transition: color 0.2s;
-    & + a {
-      margin-top: 0.2rem;
+      background: rgba(0, 0, 0, 0.3);
+
+      overflow: hidden;
     }
-    &:hover {
-      color: var(--red);
+    .imagesContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      padding: 2rem;
+
+      a {
+        animation: characterAppearAnimation 0.6s;
+        position: relative;
+
+        &:hover + .name {
+          filter: saturate(1.2);
+        }
+        transition: transform 0.4s;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      img {
+        border: 2px solid var(--red);
+        width: 300px;
+        height: 450px;
+      }
+      .name {
+        animation: characterAppearNameAnimation 1s forwards;
+        min-width: 25rem;
+
+        margin-top: -2rem;
+
+        background-color: var(--red);
+        padding: 2rem 3rem;
+        font-size: 1.3rem;
+
+        clip-path: polygon(10% 0%, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: saturate(1.2);
+        }
+      }
     }
+  }
+}
+@keyframes characterAppearAnimation {
+  0% {
+    right: -10rem;
+  }
+  100% {
+    right: 0rem;
+  }
+}
+@keyframes characterAppearNameAnimation {
+  0% {
+    right: -10rem;
+    transform: rotate(0);
+  }
+  70% {
+    right: 0rem;
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-7deg);
   }
 }

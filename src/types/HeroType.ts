@@ -1,4 +1,4 @@
-export type UrlsHeroType = {
+export type UrlsType = {
   type: string;
   url: string;
 };
@@ -7,6 +7,19 @@ export type HeroType = {
   name: string;
   thumbnail: {
     path: string;
+    extension: string;
   };
-  urls: UrlsHeroType[];
+  urls: UrlsType[];
+  comics: {
+    available: number;
+    collectionURI: string;
+  };
+};
+export type ComicType = {
+  id: number;
+  title: string;
+  thumbnail: {
+    path: string;
+  };
+  urls: UrlsType[];
 };

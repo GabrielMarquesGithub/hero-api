@@ -1,0 +1,41 @@
+.ComicContainer {
+  min-height: 375px;
+  animation: ComicAppearAnimation 1s forwards;
+  position: relative;
+  .comicsNumber {
+    position: absolute;
+    z-index: 2;
+
+    min-width: 10rem;
+
+    background-color: var(--red);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+
+    clip-path: polygon(10% 0%, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+
+    top: -1rem;
+    left: 0;
+
+    transform: rotate(-10deg);
+  }
+  img {
+    margin: 1rem;
+    width: 250px;
+    min-height: 375px;
+
+    transition: transform 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+@keyframes ComicAppearAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

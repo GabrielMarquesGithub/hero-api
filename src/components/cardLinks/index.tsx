@@ -1,9 +1,9 @@
-import { UrlsHeroType } from "../../types/HeroType";
+import { UrlsType } from "../../types/HeroType";
 
 import "./style.scss";
 
 type CardLinksProps = {
-  Urls: UrlsHeroType[];
+  Urls: UrlsType[];
   open: boolean;
 };
 

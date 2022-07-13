@@ -1,0 +1,57 @@
+.mockDiv {
+  width: 1.5rem;
+}
+.ArrowButtonContainer {
+  animation: ArrowAppearAnimation 0.4s forwards;
+  cursor: pointer;
+
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.05);
+  }
+  div {
+    width: 0.25rem;
+    border-radius: 2rem;
+    background-color: var(--white);
+    opacity: 0.8;
+  }
+  &.left {
+    div {
+      &:nth-child(1) {
+        height: 4rem;
+      }
+      &:nth-child(2) {
+        height: 6rem;
+      }
+      &:nth-child(3) {
+        height: 8rem;
+      }
+    }
+  }
+  &.right {
+    div {
+      &:nth-child(1) {
+        height: 8rem;
+      }
+      &:nth-child(2) {
+        height: 6rem;
+      }
+      &:nth-child(3) {
+        height: 4rem;
+      }
+    }
+  }
+}
+@keyframes ArrowAppearAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
