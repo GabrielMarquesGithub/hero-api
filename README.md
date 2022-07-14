@@ -1,4 +1,4 @@
-# Hero-Api
+# [Hero-Api](https://hero-api-lilac.vercel.app/)
 O hero API é um projeto visando a implementação das melhores práticas de otimização tanto no consumo de uma API quanto em sua exibição 
 
 ### Ferramentas
@@ -8,6 +8,9 @@ O hero API é um projeto visando a implementação das melhores práticas de oti
 
 ### Mais Detalhes 
 A aplicação foi construída consumindo a API da Marvel, foi utilizado o useReducer para gerenciamento dos  estados complexos e foi criando um Hook para o consumo de APIs 
+
+### Contratempos
+A rota para requisições disponibilizadas pela Marvel API entrou em conflito com o método HTTPs tanto no deploy na Netlify quanto na Vercel impossibilitando uma das funcionalidades relacionadas a rolagem das histórias em quadrinhos 
 
 ## Home
 ![Imagem da pagina inicial](https://github.com/NikisGabriel/Hero-Api/blob/main/public/initialBG.png)
