@@ -2,8 +2,6 @@
   position: relative;
   animation: appearCardAnimation 0.4s forwards;
 
-  width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,18 +9,22 @@
   //ao trabalhar com flex box utilizando 'nowrap' pode ocorrer um problema causado por uma regra do flex box que n permite um tamanho menor que o conteúdo para prevenir isso podemos usar min-width 0
   min-width: 0;
 
-  img {
+  .HeroCardImgContainer {
     position: relative;
 
-    height: 100%;
     width: 100%;
-
     bottom: 0;
     transition: bottom 0.4s;
+
     &:hover {
       bottom: 0.5rem;
     }
+    img {
+      height: 100%;
+      width: 100%;
+    }
   }
+
   .text {
     position: relative;
 

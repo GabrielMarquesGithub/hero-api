@@ -136,8 +136,6 @@ function Character() {
   const handleDecrement = () =>
     dispatch(reducerAction(actionKind.decrementIndex));
 
-  console.log(comicsDataArray);
-
   return (
     <>
       {character.loading && <Loading />}

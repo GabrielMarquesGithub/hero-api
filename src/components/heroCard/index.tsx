@@ -18,7 +18,7 @@ function HeroCard({ hero }: HeroCardProps) {
   const handleOpenLinks = () => setLinksOpen((s) => !s);
   return (
     <div className="HeroCardContainer">
-      <Link to={`/character/${hero.id}`}>
+      <Link className="HeroCardImgContainer" to={`/character/${hero.id}`}>
         <img
           src={`${hero.thumbnail.path}/portrait_uncanny.${hero.thumbnail.extension}`}
           alt={hero.name}

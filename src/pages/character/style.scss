@@ -17,15 +17,12 @@
     height: 100vh;
     .comicsContainer {
       position: relative;
-      padding: 2rem;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
       background: rgba(0, 0, 0, 0.3);
-
-      overflow: hidden;
     }
     .imagesContainer {
       display: flex;
@@ -68,6 +65,31 @@
 
         &:hover {
           filter: saturate(1.2);
+        }
+      }
+    }
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      .comicsContainer {
+        height: 100vh;
+        order: 2;
+      }
+      .imagesContainer {
+        height: 100vh;
+        order: 1;
+      }
+    }
+    @media (max-width: 450px) {
+      .imagesContainer {
+        padding: 1rem;
+        img {
+          width: 200px;
+          height: 300px;
+        }
+        .name {
+          min-width: 20rem;
+          font-size: 1rem;
         }
       }
     }

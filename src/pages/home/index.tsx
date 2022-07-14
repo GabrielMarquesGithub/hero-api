@@ -141,6 +141,11 @@ function Home() {
           showButton={showButton}
         />
       )}
+      {!heroesShown?.length && !loading && (
+        <div className="notFound">
+          <span className="messageNotFound">Nenhum resultado encontrado !</span>
+        </div>
+      )}
       {loading && <Loading />}
     </main>
   );
