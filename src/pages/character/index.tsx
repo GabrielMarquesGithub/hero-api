@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, Dispatch } from "react";
 import { useParams } from "react-router-dom";
 import ArrowButton from "../../components/arrowButton";
 import ComicCard from "../../components/comicCard";
@@ -49,6 +49,7 @@ enum actionKind {
   setComics = "SET_COMICS",
   setComicShown = "SET_COMIC_SHOWN",
   setTotalComics = "SET_TOTAL_COMICS",
+  setParams = "SET_PARAMS",
   incrementIndex = "INCREMENT_INDEX",
   decrementIndex = "DECREMENT_INDEX",
 }
@@ -58,16 +59,9 @@ const reducer = (state: StateType, action: Action): StateType => {
 
   switch (type) {
     case actionKind.setComics:
-      if (!state.comics) {
-        return {
-          ...state,
-          comics: payload as ComicType[],
-        };
-      }
-
       return {
         ...state,
-        comics: [...state.comics, ...(payload as ComicType[])],
+        comics: payload as ComicType[],
       };
 
     case actionKind.setTotalComics:
@@ -76,15 +70,6 @@ const reducer = (state: StateType, action: Action): StateType => {
         total: payload as number,
       };
     case actionKind.incrementIndex: {
-      //condicional para requisições 'futuras'
-      if (state.index + 10 > Number(state.params.offset) + 20) {
-        const newOffset = Number(Number(state.params.offset) + 20).toString();
-        return {
-          ...state,
-          index: state.index++,
-          params: { ...state.params, offset: newOffset },
-        };
-      }
       return {
         ...state,
         index: state.index++,
@@ -100,10 +85,26 @@ const reducer = (state: StateType, action: Action): StateType => {
         ...state,
         comicShown: state.comics ? state.comics[state.index] : null,
       };
-
+    case actionKind.setParams:
+      return {
+        ...state,
+        params: { ...state.params, offset: (payload as number).toString() },
+      };
     default:
       return state;
   }
+};
+
+const setComics = (
+  stateComics: ComicType[],
+  dispatch: Dispatch<Action>,
+  payload: ComicType[]
+) => {
+  if (stateComics) {
+    const comics = [...stateComics, ...payload];
+    return dispatch(reducerAction(actionKind.setComics, comics));
+  }
+  return dispatch(reducerAction(actionKind.setComics, payload));
 };
 
 function Character() {
@@ -121,14 +122,19 @@ function Character() {
   //setando as comics pré carregadas
   useEffect(() => {
     if (comicsDataArray) {
-      dispatch(reducerAction(actionKind.setComics, comicsDataArray));
+      setComics(state.comics ? state.comics : [], dispatch, comicsDataArray);
       dispatch(reducerAction(actionKind.setTotalComics, totalComics));
     }
   }, [comicsDataArray]);
 
-  //setando a comic exibida
+  //setando a comic exibida e requisição para paginação
   useEffect(() => {
     dispatch(reducerAction(actionKind.setComicShown));
+    if (state.index + 10 > Number(state.params.offset) + 20) {
+      dispatch(
+        reducerAction(actionKind.setParams, Number(state.params.offset) + 20)
+      );
+    }
   }, [state.index, state.comics]);
 
   const handleIncrement = () =>
