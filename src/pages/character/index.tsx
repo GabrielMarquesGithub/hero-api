@@ -83,7 +83,7 @@ const reducer = (state: StateType, action: Action): StateType => {
     case actionKind.setComicShown:
       return {
         ...state,
-        comicShown: state.comics![state.index],
+        comicShown: payload as ComicType,
       };
     case actionKind.setParams:
       return {
@@ -130,7 +130,8 @@ function Character() {
   //setando a comic exibida e requisição para paginação
   useEffect(() => {
     if (state.comics?.length) {
-      dispatch(reducerAction(actionKind.setComicShown));
+      const newComicShown = state.comics[index];
+      dispatch(reducerAction(actionKind.setComicShown, newComicShown));
     }
     if (state.index + 10 > Number(state.params.offset) + 20) {
       dispatch(
