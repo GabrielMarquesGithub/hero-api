@@ -88,4 +88,4 @@ Entre as ideias de atualização para o projeto, estão:
 
 ## Observações
 
-Este projeto é simplista quanto a sua estrutura mas tem como enfoque além do trabalho com API’s o emprego de abordagens com `useReducer`. No Hero Api a parte de estilo também foi um ponto bem focado no seu desenvolvimento.
+Este projeto é simplista quanto a sua estrutura, mas tem como enfoque além do trabalho com API’s o emprego de abordagens com `useReducer`. No Hero Api a parte de escolha de design e estilização foi um ponto focal no desenvolvimento.
